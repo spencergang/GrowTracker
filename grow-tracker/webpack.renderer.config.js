@@ -5,7 +5,17 @@ rules.push({
   use: [
     { loader: 'style-loader' }, 
     { loader: 'css-loader' },
-    { loader: 'sass-loader' }
+    { loader: 'sass-loader' },
+    { 
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: function() {
+            return [ require('autoprefixer') ];
+          }
+        }
+      }
+    }
   ]
 });
 
