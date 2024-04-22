@@ -1,4 +1,5 @@
 const rules = require('./webpack.rules');
+const webpack = require('webpack');
 
 rules.push({
   test: /\.(scss)$/,
@@ -29,4 +30,10 @@ module.exports = {
   module: {
     rules,
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 };
